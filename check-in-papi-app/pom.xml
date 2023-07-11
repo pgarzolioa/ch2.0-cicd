@@ -14,7 +14,7 @@
 	</parent>
 	<groupId>a4698281-c583-43bf-869e-6a2c5e067e6d</groupId>
 	<artifactId>check-in-papi-app</artifactId>
-	<version>1.0.1</version>
+	<version>1.0.2</version>
 	<packaging>mule-application</packaging>
 
 	<name>check-in-papi-app</name>
@@ -49,17 +49,19 @@
 					<configuration>
 						<cloudhub2Deployment>
 							<uri>https://anypoint.mulesoft.com</uri>
-							<businessGroupId>e6d8b1ce-9611-4324-b4d0-d3d1e27fe6f7</businessGroupId>
+							<businessGroupId>${project.groupId}</businessGroupId>
 							<environment>Sandbox</environment>
 							<target>Cloudhub-US-East-2</target>
 							<provider>MC</provider>
 							<muleVersion>4.4.0</muleVersion>
 							<server>cloudhub-deploy</server>							
-             				 <!-- reads credentials from settings.xml -->
-							<applicationName>check-in-auto</applicationName>
+		             				 <!-- reads credentials from settings.xml. This are used to deploy the API -->
+							<applicationName>check-in-paula</applicationName>
 							<replicas>1</replicas>
 							<vCores>0.1</vCores>
 							<deploymentTimeout>240000</deploymentTimeout>
+
+							<!-- Properties clientid, clientsecret, are API Manager credentials to obtain API policies-->	
 							<properties>
 								<anypoint.platform.client_id>${ap.client_id}</anypoint.platform.client_id>
 								<anypoint.platform.client_secret>${ap.client_secret}</anypoint.platform.client_secret>
@@ -67,6 +69,7 @@
 							<deploymentSettings>
 								<http>
 									<inbound>
+										<!-- true because the HTTP Listener uses TLS/HTTPS-->
 										<lastMileSecurity>true</lastMileSecurity>
 									</inbound>
 								</http>
