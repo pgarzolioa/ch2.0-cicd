@@ -136,3 +136,11 @@ jobs:
         -Dap.client_id="${{ secrets.AP_CLIENT_ID }}" \
         -Dap.client_secret="${{ secrets.AP_CLIENT_SECRET }}"   
         -Denvironment="prod"
+        -Dprovider="MC"
+        -Dmule.version="4.4.0"
+        -Dserver="cloudhub-deploy"
+        -Dapp.name="check-in-paula"
+        -Dreplicas="1"
+        -Dvcores="0.1"
+        -Ddeployment.timeout="240000"
+
