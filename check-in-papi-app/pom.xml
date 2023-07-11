@@ -56,7 +56,7 @@
 							<muleVersion>4.4.0</muleVersion>
 							<server>cloudhub-deploy</server>							
 		             				 <!-- reads credentials from settings.xml. This are used to deploy the API -->
-							<applicationName>check-in-paula</applicationName>
+							<applicationName>${app.name}-${environment}</applicationName>
 							<replicas>1</replicas>
 							<vCores>0.1</vCores>
 							<deploymentTimeout>240000</deploymentTimeout>
