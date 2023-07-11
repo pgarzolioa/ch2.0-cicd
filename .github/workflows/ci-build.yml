@@ -135,3 +135,4 @@ jobs:
         mvn clean deploy --file check-in-papi-app/pom.xml -DmuleDeploy \
         -Dap.client_id="${{ secrets.AP_CLIENT_ID }}" \
         -Dap.client_secret="${{ secrets.AP_CLIENT_SECRET }}"   
+        -Denvironment="prod"
