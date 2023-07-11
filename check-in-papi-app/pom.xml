@@ -67,7 +67,7 @@
 								<anypoint.platform.client_secret>${ap.client_secret}</anypoint.platform.client_secret>
 							</secureProperties>
 							<secureProperties>
-<!-- 								<tls.password>${tls.password}</tls.password> 
+ 								<tls.password>${tls.password}</tls.password> 
 							</secureProperties>
 							<deploymentSettings>
 								<http>
