@@ -56,7 +56,7 @@
 							<muleVersion>${mule.version}</muleVersion>
 							<server>${server}</server>							
 		             				 <!-- reads credentials from settings.xml. This are used to deploy the API -->
-							<applicationName>${app-name}</applicationName>
+							<applicationName>${app.name}</applicationName>
 							<replicas>${replicas}</replicas>
 							<vCores>${vcores}</vCores>
 							<deploymentTimeout>${deployment.timeout}</deploymentTimeout>
