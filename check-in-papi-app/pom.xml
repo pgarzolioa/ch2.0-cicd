@@ -14,7 +14,7 @@
 	</parent>
 	<groupId>a4698281-c583-43bf-869e-6a2c5e067e6d</groupId>
 	<artifactId>check-in-papi-app</artifactId>
-	<version>1.0.11</version>
+	<version>1.0.12</version>
 	<packaging>mule-application</packaging>
 
 	<name>check-in-papi-app</name>
@@ -51,15 +51,15 @@
 							<uri>https://anypoint.mulesoft.com</uri>
 							<businessGroupId>${project.groupId}</businessGroupId>
 							<environment>${environment}</environment>
-							<target>Cloudhub-US-East-2</target>
-							<provider>MC</provider>
-							<muleVersion>4.4.0</muleVersion>
-							<server>cloudhub-deploy</server>							
+							<target>${target}</target>
+							<provider>${provider}</provider>
+							<muleVersion>${mule.version}</muleVersion>
+							<server>${server}</server>							
 		             				 <!-- reads credentials from settings.xml. This are used to deploy the API -->
-							<applicationName>check-in-paula</applicationName>
-							<replicas>1</replicas>
-							<vCores>0.1</vCores>
-							<deploymentTimeout>240000</deploymentTimeout>
+							<applicationName>${app-name}</applicationName>
+							<replicas>${replicas}</replicas>
+							<vCores>${vcores}</vCores>
+							<deploymentTimeout>${deployment.timeout}</deploymentTimeout>
 
 							<!-- Properties clientid, clientsecret, are API Manager credentials to obtain API policies-->	
 							<secureProperties>
