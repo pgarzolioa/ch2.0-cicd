@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:apikit="http://www.mulesoft.org/schema/mule/mule-apikit"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns:tls="http://www.mulesoft.org/schema/mule/tls" xmlns:api-gateway="http://www.mulesoft.org/schema/mule/api-gateway"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="
+http://www.mulesoft.org/schema/mule/mule-apikit http://www.mulesoft.org/schema/mule/mule-apikit/current/mule-apikit.xsd 
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/api-gateway http://www.mulesoft.org/schema/mule/api-gateway/current/mule-api-gateway.xsd
+http://www.mulesoft.org/schema/mule/tls http://www.mulesoft.org/schema/mule/tls/current/mule-tls.xsd">
+	<configuration-properties doc:name="Configuration properties" doc:id="81c76418-c4f1-4410-b60d-fc6543348983" file="application.properties" />
+	<http:listener-config name="api-httpListenerConfig">
+        <http:listener-connection host="0.0.0.0" port="${https.port}" protocol="${scheme}" tlsContext="TLS_Context"/>
+    </http:listener-config>
+    <apikit:config name="api-config" api="${api.spec}" outboundHeadersMapName="outboundHeaders" httpStatusVarName="httpStatus" />
+	<api-gateway:autodiscovery apiId="${api.id}" ignoreBasePath="true" doc:name="API Autodiscovery" doc:id="cc4ea307-e39d-4fca-8517-e0460025be26" flowRef="api-main" />
+	<tls:context name="TLS_Context" doc:name="TLS Context" doc:id="95a8a41d-2ca3-453d-a5be-fff42f1d18eb" >
+		<tls:key-store type="pkcs12" path="certs/check-in-papi.p12" alias="server" keyPassword="${tls.keystore.password}" password="mule12345" />
+	</tls:context>
+	<configuration-properties doc:name="Configuration properties" doc:id="e89e8c3d-38ae-4788-951a-87d36fac7eb1" file="application.properties" />
+</mule>
