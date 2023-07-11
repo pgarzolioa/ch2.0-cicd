@@ -50,7 +50,7 @@
 						<cloudhub2Deployment>
 							<uri>https://anypoint.mulesoft.com</uri>
 							<businessGroupId>${project.groupId}</businessGroupId>
-							<environment>Sandbox</environment>
+							<environment>${environment}</environment>
 							<target>Cloudhub-US-East-2</target>
 							<provider>MC</provider>
 							<muleVersion>4.4.0</muleVersion>
